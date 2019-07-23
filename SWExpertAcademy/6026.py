@@ -1,7 +1,8 @@
 T = int(input())
 data = []
 for _ in range(T):
-    data.append(list(map(int, input().split())))
+    n, m = map(int, input().split())
+    data.append((n, m))
 
 
 def combination(n, k):
