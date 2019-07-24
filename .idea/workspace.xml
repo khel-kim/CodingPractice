@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40db24bc-3270-4b70-a814-f1662a527c10" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Programmers/Level0301RepresentationOfN.py" beforeDir="false" afterPath="$PROJECT_DIR$/Programmers/Level0301RepresentationOfN.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SWExpertAcademy/6026.py" beforeDir="false" afterPath="$PROJECT_DIR$/SWExpertAcademy/6026.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Programmers/Level0301RepresentationOfN2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Programmers/Level0301RepresentationOfN2.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,7 +16,8 @@
         <counts>
           <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -33,24 +32,26 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Python Console" value="66" />
-          <entry key="py" value="6092" />
+          <entry key="Python Console" value="85" />
+          <entry key="py" value="9831" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="6158" />
+          <entry key="Python" value="9916" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Programmers/Level0301RepresentationOfN2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+            <state>
+              <folding>
+                <marker date="1563950068931" expanded="true" signature="61:1935" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -222,11 +223,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="0" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Run" order="0" weight="0.32894737" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Run" order="0" visible="true" weight="0.32894737" />
       <window_info anchor="bottom" id="Python Console" order="1" weight="0.32894737" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="3" />
@@ -250,9 +252,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <marker date="1563864819361" expanded="true" signature="679:836" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -265,8 +264,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Programmers/Level0301RepresentationOfN2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+        <state>
+          <folding>
+            <marker date="1563950068931" expanded="true" signature="61:1935" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

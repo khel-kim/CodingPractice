@@ -1,44 +1,43 @@
-def solution(N, number):
-    if N == number:
+def solution(n, number):
+    if n == number:
         return 1
-    else:
-        n = str(N)
-        number_str = str(number)
+    memo = [[], [n]]
+    duplicated = [n]
+    while True:
+        if len(memo) > 8:
+            return -1
+        else:
+            current = []
+            for i in range(1, len(memo)):
+                check_list1 = memo[i]
+                for j in range(1, len(memo)):
+                    check_list2 = memo[j]
+                    if i + j == len(memo) and i >= j:
+                        for num1 in check_list1:
+                            for num2 in check_list2:
+                                if num1 + num2 not in duplicated and num1 + num2 not in current:
+                                    current.append(num1 + num2)
+                                if num1 * num2 not in duplicated and num1 * num2 not in current:
+                                    current.append(num1 * num2)
 
-        operations1 = ["+", "*"]
-        operations2 = ["-", "//"]
+                                if num1 - num2 not in duplicated and num1 - num2 not in current:
+                                    current.append(num1 - num2)
+                                if num2 - num1 not in duplicated and num2 - num1 not in current:
+                                    current.append(num2 - num1)
 
-        memo = [n]
-        queue = [n]
-        count = 2
-        last = n
-        while queue:
-            current = queue.pop(0)
-            for operation in operations1:
-                tmp = str(eval(current + operation + n))
-                if tmp not in memo:
-                    memo.append(tmp)
-                    queue.append(tmp)
-            for operation in operations2:
-                tmp1 = str(eval(current + operation + n))
-                if tmp1 not in memo:
-                    memo.append(tmp1)
-                    queue.append(tmp1)
-                if current != "0":
-                    tmp2 = str(eval(n + operation + current))
-                    if tmp2 not in memo:
-                        memo.append(tmp2)
-                        queue.append(tmp2)
-            if last == current:
-                memo.append(n * count)
-                queue.append(n * count)
-                if number_str in queue:
-                    break
-                count += 1
-                last = queue[-1]
-            if count >= 8:
-                return -1
-    return count
+                                if num2 != 0:
+                                    if num1 // num2 not in duplicated and num1 // num2 not in current:
+                                        current.append(num1 // num2)
+                                if num1 != 0:
+                                    if num2 // num1 not in duplicated and num2 // num1 not in current:
+                                        current.append(num2 // num1)
+            str_n = str(n)
+            if int(str_n * len(memo)) not in duplicated and int(str_n * len(memo)) not in current:
+                current.append(int(str_n * len(memo)))
+            if number in current:
+                return len(memo)
+            memo.append(current)
+            duplicated.extend(current)
 
 
-print(solution(2, 22))
+print(solution(5, 26))
