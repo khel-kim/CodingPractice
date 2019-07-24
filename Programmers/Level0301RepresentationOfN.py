@@ -31,6 +31,7 @@ def solution(n, number):
                                 if num1 != 0:
                                     if num2 // num1 not in duplicated and num2 // num1 not in current:
                                         current.append(num2 // num1)
+
             str_n = str(n)
             if int(str_n * len(memo)) not in duplicated and int(str_n * len(memo)) not in current:
                 current.append(int(str_n * len(memo)))

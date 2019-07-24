@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40db24bc-3270-4b70-a814-f1662a527c10" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Programmers/Level0301RepresentationOfN2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Programmers/Level0301RepresentationOfN2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Programmers/Level0301RepresentationOfN.py" beforeDir="false" afterPath="$PROJECT_DIR$/Programmers/Level0301RepresentationOfN.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,12 +34,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="85" />
-          <entry key="py" value="9831" />
+          <entry key="py" value="9876" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="9916" />
+          <entry key="Python" value="9961" />
         </counts>
       </usages-collector>
     </session>
@@ -46,11 +47,12 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Programmers/Level0301RepresentationOfN2.py">
+        <entry file="file://$PROJECT_DIR$/Programmers/Level0301RepresentationOfN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="266">
+              <caret line="14" column="53" lean-forward="true" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
               <folding>
-                <marker date="1563950068931" expanded="true" signature="61:1935" ph="..." />
+                <marker date="1563950318969" expanded="true" signature="61:1936" ph="..." />
               </folding>
             </state>
           </provider>
@@ -65,8 +67,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/SWExpertAcademy/6026.py" />
-        <option value="$PROJECT_DIR$/Programmers/Level0301RepresentationOfN.py" />
         <option value="$PROJECT_DIR$/Programmers/Level0301RepresentationOfN2.py" />
+        <option value="$PROJECT_DIR$/Programmers/Level0301RepresentationOfN.py" />
       </list>
     </option>
   </component>
@@ -83,6 +85,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -104,7 +107,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -186,7 +188,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Programmers/Level0301RepresentationOfN2.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\student\Documents\github\CodingPractice\Programmers\Level0301RepresentationOfN.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -262,11 +264,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Programmers/Level0301RepresentationOfN2.py">
+    <entry file="file://$PROJECT_DIR$/Programmers/Level0301RepresentationOfN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="266">
+          <caret line="14" column="53" lean-forward="true" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
           <folding>
-            <marker date="1563950068931" expanded="true" signature="61:1935" ph="..." />
+            <marker date="1563950318969" expanded="true" signature="61:1936" ph="..." />
           </folding>
         </state>
       </provider>
