@@ -5,7 +5,7 @@ for _ in range(T):
     data.append((n, m))
 
 
-def combination(n, k):
+def combination1(n, k):
     w = [[1]]
     k = min(k, n-k)
     for i in range(1, n + 1):
@@ -20,15 +20,6 @@ def combination(n, k):
     return w[n][k]
 
 
-def dp(m, n):
-    memo = [0] * (m + 1)
-    for i in range(1, m+1):
-        memo[i] += i ** n
-        for j in range(1, i):
-            memo[i] -= combination2(i, j) * memo[j]
-    return memo[-1]
-
-
 def combination2(n, m):
     upper = 1
     for i in range(m+1, n +1):
@@ -37,6 +28,15 @@ def combination2(n, m):
     for j in range(1, n - m + 1):
         down *= j
     return upper // down
+
+
+def dp(m, n):
+    memo = [0] * (m + 1)
+    for i in range(1, m+1):
+        memo[i] += i ** n
+        for j in range(1, i):
+            memo[i] -= combination2(i, j) * memo[j]
+    return memo[-1]
 
 
 for i, case in enumerate(data):
