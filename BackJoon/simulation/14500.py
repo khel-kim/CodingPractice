@@ -47,18 +47,3 @@ for checking_type in checking_types:  # time_complexity *= 19
                 max_tetrimino = sum_now
 
 print(max_tetrimino)
-
-# from pprint import pprint
-# import copy
-# tmp_board = [[None] * 4 for _ in range(4)]
-#
-# for i, checking_type in enumerate(checking_types):
-#
-#     checking_board = copy.deepcopy(tmp_board)
-#     poly = checking_type[:-1]
-#     height, width = checking_type[-1]
-#     for dx, dy in poly:
-#         checking_board[dx][dy] = 1000
-#     print(i)
-#     print("height and width: ", height, width)
-#     pprint(checking_board)

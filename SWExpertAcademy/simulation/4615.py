@@ -79,4 +79,3 @@ def sol(case):
 for i, case in enumerate(data):
     result = sol(case)
     print("#%s" % (i + 1), result[0], result[1])
-
