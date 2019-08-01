@@ -1,4 +1,7 @@
+# x, y, age를 리스트로 관리하는 것보다 tuple로 관리하는 것이 빠름
+# 아마 unpack을 할 때 튜플로 하는게 더 빠른듯
 from collections import deque
+
 n, m, k = map(int, input().split())
 A = []
 for _ in range(n):
@@ -10,6 +13,7 @@ for _ in range(m):
 
 reproduction = ((0, 1), (1, 0), (0, -1), (-1, 0),
                 (1, 1), (1, -1), (-1, -1), (-1, 1))
+
 
 a = [[5] * n for _ in range(n)]
 depth_trees = [[0] * n for _ in range(n)]
