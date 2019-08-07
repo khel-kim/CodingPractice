@@ -32,7 +32,7 @@ def sol(case):
 
     def DFS(array, index=0, visit1=[], visit2=[]):
         if index == len(array):
-            yield (visit1, visit2)
+            yield visit1, visit2
         else:
             for i in range(2):
                 if i == 0:
