@@ -47,15 +47,15 @@ def sol(case):
     def get_time(people, stair, stair_type):
         n_people = len(people)
         stair_time = stair[1]
-
         cur_stair = []
         n_complete_people = 0
         cur_time = 0
         while n_complete_people != n_people:
             cur_time += 1
             cur_stair_tmp = []
-            for person in cur_stair:
-                person[1] += 1
+            # 내리기
+            for index, person in enumerate(cur_stair):
+                person[1] += 1 # 계단 위치
                 if person[1] >= stair_time:
                     n_complete_people += 1
                 else:
@@ -64,13 +64,13 @@ def sol(case):
             if len(cur_stair) == 3:
                 continue
 
-            new_people = []
-            for person in people:
+            # 타기
+            for i, person in enumerate(people):
                 if cur_time >= person[stair_type] and len(cur_stair) < 3:
                     cur_stair.append([person, 0])
                 else:
-                    new_people.append(person)
-            people = new_people
+                    people = people[i:]
+                    break
         return cur_time + 1
 
     minimum = 1000000
