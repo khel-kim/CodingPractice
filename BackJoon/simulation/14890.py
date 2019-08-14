@@ -1,3 +1,10 @@
+n, l = map(int, input().split())
+board = []
+for _ in range(n):
+    tmp = list(map(int, input().split()))
+    board.append(tmp)
+
+
 def search(line):
     setting = []
     for i in range(0, n - 1):
@@ -28,16 +35,10 @@ def search(line):
     return 1
 
 
-numbers = "1234567898"
-n = len(numbers)
-l = 1
-tmp = list(map(int, numbers))
-print(search(tmp))
-"""
-(3, 2, 2, 1, 1, 1)
-(3, 3, 2, 1, 1, 1)
-(3, 3, 2, 1, 1, 2)
-(3, 3, 3, 2, 3, 3)
-(3, 3, 2, 2, 3, 3)
-(3, 3, 3, 2, 1, 2)
-"""
+count = 0
+for check_line in board:
+    count += search(check_line)
+for check_line in zip(*board):
+    count += search(check_line)
+
+print(count)
