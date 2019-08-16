@@ -40,8 +40,8 @@ def DFS(kinds, visit=[], depth=0):
 
 
 minimum = n * m
+board_copy = copy.deepcopy(board)
 for direction_kinds in DFS(cctv_kinds):
-    board_copy = copy.deepcopy(board)
     for cctv_loc, cctv_kind, toward in zip(cctv, cctv_kinds, direction_kinds):
         if cctv_kind == 1:
             direction = directions[toward]
