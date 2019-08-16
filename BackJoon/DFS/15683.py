@@ -1,4 +1,3 @@
-import copy
 n, m = map(int, input().split())
 board = []
 for _ in range(n):
@@ -27,6 +26,7 @@ def watch(loc_x, loc_y, direction, field):
         if field[nx][ny] == 6: break
         field[nx][ny] = 7
         step += 1
+        cover.append((nx, ny))
 
 
 def DFS(kinds, visit=[], depth=0):
@@ -40,36 +40,39 @@ def DFS(kinds, visit=[], depth=0):
 
 
 minimum = n * m
-board_copy = copy.deepcopy(board)
 for direction_kinds in DFS(cctv_kinds):
+    cover = []
     for cctv_loc, cctv_kind, toward in zip(cctv, cctv_kinds, direction_kinds):
         if cctv_kind == 1:
             direction = directions[toward]
-            watch(cctv_loc[0], cctv_loc[1], direction, board_copy)
+            watch(cctv_loc[0], cctv_loc[1], direction, board)
         elif cctv_kind == 2:
             direction = [directions[toward], directions[(toward + 2) % 4]]
             for direc in direction:
-                watch(cctv_loc[0], cctv_loc[1], direc, board_copy)
+                watch(cctv_loc[0], cctv_loc[1], direc, board)
         elif cctv_kind == 3:
             direction = [directions[toward], directions[(toward + 1) % 4]]
             for direc in direction:
-                watch(cctv_loc[0], cctv_loc[1], direc, board_copy)
+                watch(cctv_loc[0], cctv_loc[1], direc, board)
         elif cctv_kind == 4:
             direction = [directions[toward], directions[(toward + 1) % 4], directions[(toward + 2) % 4]]
             for direc in direction:
-                watch(cctv_loc[0], cctv_loc[1], direc, board_copy)
+                watch(cctv_loc[0], cctv_loc[1], direc, board)
         else:
             for direc in directions:
-                watch(cctv_loc[0], cctv_loc[1], direc, board_copy)
+                watch(cctv_loc[0], cctv_loc[1], direc, board)
 
     count = 0
     for x in range(n):
         for y in range(m):
-            if board_copy[x][y] == 0:
+            if board[x][y] == 0:
                 count += 1
     if minimum > count:
         minimum = count
 
-    board_copy = copy.deepcopy(board)
+    for x, y in cover:
+        if (x, y) in cctv:
+            continue
+        board[x][y] = 0
 
 print(minimum)
