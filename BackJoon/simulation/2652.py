@@ -2,139 +2,133 @@ n = int(input())
 block_info = list(map(int, input().split()))
 board = [list(map(int, input().split())) for _ in range(n)]
 
-checkers = [(-1, -1), (1, -1), (1, 1), (-1, 1)]
 
-u, v, w, x, y = block_info
-base_block = []
-for i in range(x + v + 1):
-    if i == 0:
-        tmp = [0] * u
-    elif 1 <= i < 1 + x:
-        tmp = []
-        for j in range(u):
-            if j < w:
-                tmp.append(0)
-            elif w <= j < w + y:
-                tmp.append(1)
-            else:
-                tmp.append(0)
-    else:
-        tmp = [1] * u
-    base_block.append(tmp)
+def get_block(info):
+    u, v, w, x, y = info
+    block = [[0] * u for _ in range(x+1)]
+    for p in range(1, 1 + x):
+        for q in range(w, w + y):
+            block[p][q] = 1
+    for _ in range(v):
+        block.append([1] * u)
+    return block
 
 
-def rotation_block(block):
-    rotated_block = []
+def get_rotated_block(block):
     height = len(block)
     width = len(block[0])
-    for y in range(1, width + 1):
-        rotated_block.append([])
-        for x in range(height):
-            rotated_block[-1].append(block[x][-y])
-    return rotated_block
+    new_block = [[0] * height for _ in range(width)]
+    for p in range(height):
+        for q in range(width):
+            new_block[width - q - 1][p] = block[p][q]
+    return new_block
 
 
-def checker(block, h, w, p, q):
-    for dx in range(h):
-        for dy in range(w):
-            nx, ny = p + dx, q + dy
-            if board[nx][ny] + block[dx][dy] != 1:
+def search(x, y, block):
+    height = len(block)
+    width = len(block[0])
+    for p in range(height):
+        for q in range(width):
+            if board[x + p][y + q] + block[p][q] != 1:
                 return False
     return True
 
 
 count = 0
-position = []
-for i in range(4):
-    base_block = rotation_block(base_block)
-    height = len(base_block)
-    width = len(base_block[0])
-    # print(n)
-    # print(height, width)
-    # print(base_block)
-    for p in range(n - height + 1):
-        for q in range(n - width + 1):
-            if checker(base_block, height, width, p, q):
-                if i == 0:
-                    nx = p - 1
-                    ny = q
-                    if not 0 <= nx < n: pass
-                    elif not 0 <= ny < n: pass
-                    elif board[nx][ny] == 1: break
-                    nx = p + height
-                    ny = q
-                    if not 0 <= nx < n: pass
-                    elif not 0 <= ny < n: pass
-                    elif board[nx][ny] == 1:break
-                elif i == 2:
-                    nx = p - 1
-                    ny = q + 1
-                    if not 0 <= nx < n: pass
-                    elif not 0 <= ny < n: pass
-                    elif board[nx][ny] == 1: break
-                    nx = p + height
-                    ny = q + 1
-                    if not 0 <= nx < n: pass
-                    elif not 0 <= ny < n: pass
-                    elif board[nx][ny] == 1: break
+locations = []
+#########################################################
+base_block = get_block(block_info)
+height = len(base_block)
+width = len(base_block[0])
+for x in range(n - height + 1):
+    for y in range(n - width + 1):
+        if search(x, y, base_block):
+            if 0 <= y - 1 and board[x][y-1] == 1:
+                break
+            if y + width < n and board[x][y + width] == 1:
+                break
 
-                elif i == 1:
-                    nx = p + 1
-                    ny = q - 1
-                    if not 0 <= nx < n: pass
-                    elif not 0 <= ny < n: pass
-                    elif board[nx][ny] == 1: break
-                    nx = p + 1
-                    ny = q + width
-                    if not 0 <= nx < n: pass
-                    elif not 0 <= ny < n: pass
-                    elif board[nx][ny] == 1: break
-                elif i == 3:
-                    nx = p
-                    ny = q - 1
-                    if not 0 <= nx < n: pass
-                    elif not 0 <= ny < n: pass
-                    elif board[nx][ny] == 1: break
-                    nx = p
-                    ny = q + width
-                    if not 0 <= nx < n: pass
-                    elif not 0 <= ny < n: pass
-                    elif board[nx][ny] == 1: break
-                count += 1
+            count += 1
+            while 0 <= x and board[x][y] == 1:
+                x -= 1
+            x += 1
+            locations.append((x, y))
+############################################################
+block1 = get_rotated_block(base_block)
+height = len(block1)
+width = len(block1[0])
+for x in range(n - height + 1):
+    for y in range(n - width + 1):
+        if search(x, y, block1):
+            if 0 <= x - 1 and board[x-1][y] == 1:
+                break
+            if x + height < n and board[x + height][y] == 1:
+                break
 
-                if i == 1:
-                    x = p + 1
-                    y = q
-                elif i == 2:
-                    x = p
-                    y = q + 1
-                elif i == 0:
-                    x, y = p, q - 1
-                    while 0 <= y and board[x][y] == 1:
-                        y -= 1
-                    y += 1
-                elif i == 3:
-                    x, y = p - 1, q
-                    while 0 <= x and board[x][y] == 1:
-                        x -= 1
-                    x += 1
+            count += 1
+            while 0 <= y and board[x][y] == 1:
+                y -= 1
+            y += 1
+            locations.append((x, y))
+############################################################
+block2 = get_rotated_block(block1)
+height = len(block2)
+width = len(block2[0])
+for x in range(n - height + 1):
+    for y in range(n - width + 1):
+        if search(x, y, block2):
+            if 0 <= y - 1 and board[x+block_info[1]][y-1] == 1:
+                break
+            if y + width < n and board[x+block_info[1]][y+width] == 1:
+                break
 
-                position.append((x, y))
+            count += 1
+            locations.append((x + block_info[1], y))
+############################################################
+block3 = get_rotated_block(block2)
+height = len(block3)
+width = len(block3[0])
+for x in range(n - height + 1):
+    for y in range(n - width + 1):
+        if search(x, y, block3):
+            if 0 <= x - 1 and board[x-1][y+block_info[1]] == 1:
+                break
+            if x + height < n and board[x+height][y+block_info[1]] == 1:
+                break
 
-if not count:
+            count += 1
+            locations.append((x, y + block_info[1]))
+############################################################
+if count == 0:
     print(0)
     print()
 else:
     print(count)
-    for p, q in position:
-        print(p+1, q+1)
+    for location in locations:
+        print(location[0] + 1, location[1] + 1)
 
+
+# print(base_block)
+# print(block1)
+# print(block2)
+# print(block3)
 """
-5
-5 1 1 1 3
-0 0 0 0 0 
-0 1 1 1 1 
-0 1 0 0 1
-0 1 0 0 1 
-0 1 0 0 1 
+16
+5 2 1 1 3
+0 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0
+0 1 1 1 1 1 0 1 1 1 1 1 1 0 0 0
+0 1 1 1 1 1 0 1 1 1 1 1 1 0 0 0
+0 1 1 1 1 1 0 1 1 1 1 1 1 0 0 0
+0 1 1 1 1 1 0 1 1 1 1 1 1 1 0 0
+0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
 """
