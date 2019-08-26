@@ -1,13 +1,21 @@
-def permutation(arr, k, visit=[]):
-    if len(visit) == k:
-        print(visit)
-    else:
-        for i in range(len(arr)):
-            if arr[i] in visit: continue
-            visit.append(arr[i])
-            permutation(arr, k, visit)
-            visit.pop()
+arr = [i for i in range(1, 11)]
 
-arr = [1,2,3]
-k = 3
-permutation(arr, k)
+
+def DFS(arr, visit=[], depth=0, now_sum=0):
+    if now_sum == 10:
+        yield visit
+    else:
+        if depth >= 10:
+            return
+        for i in range(2):
+            if i == 0:
+                yield from DFS(arr, visit, depth+1, now_sum)
+            elif i == 1:
+                if now_sum + arr[depth] > 10: continue
+                visit.append(arr[depth])
+                yield from DFS(arr, visit, depth+1, now_sum + arr[depth])
+                visit.pop()
+
+
+for i, j in enumerate(DFS(arr, [])):
+    print(i, j)
