@@ -27,5 +27,4 @@ def solution(n, times):
             return end
 
 
-
 print(solution(1, [7, 10]))
